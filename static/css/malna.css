@@ -1,0 +1,57 @@
+.header {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+}
+
+.content {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.delete {
+    background: red;
+}
+
+.save {
+    background: #4CAF50;
+}
+
+.largeButton {
+    width: auto;
+    padding: 8px;
+    font-size: large;
+}
+
+.rightSide {
+    text-align: right;
+    padding: 8px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+textarea {
+    margin: 0px;
+    height: 104px;
+    width: 300px;
+}
+

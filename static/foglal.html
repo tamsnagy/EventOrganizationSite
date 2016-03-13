@@ -14,7 +14,7 @@
     </h1>
 </div>
 <div class="content">
-    <h2>Elérhető eszközök: <input type="date"></h2>
+    <h2>Kiválasztott eszközök:</h2>
     <div style="overflow-x:auto;">
         <table class="table">
             <thead>
@@ -34,7 +34,7 @@
                 <td>hang</td>
                 <td>15000</td>
                 <td>2012.03.18.</td>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" checked></td>
             </tr>
             <tr>
                 <td>Diszkógömb</td>
@@ -42,17 +42,45 @@
                 <td>fény</td>
                 <td>70000</td>
                 <td>2008.12.12.</td>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" checked></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div class="rightSide">
-        <input class="largeButton" type="button" value="Foglal"
-               onclick="location.href='http://localhost:3000/foglal.html';">
+    <div title="megrendelo">
+        <h2>Megrendelő adatai:</h2>
+        <div style="overflow-x:auto;">
+            <table>
+                <tbody>
+                <tr>
+                    <td>Név</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Dátum</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Helyszín</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Keretösszeg</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Vendégek</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Megjegyzés</td>
+                    <td><textarea></textarea></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <input class="largeButton" type="button" value="Véglegesít" onclick="location.href='http://localhost:3000/index.html';">
     </div>
-    <input type="button" value="Megrendelés lista" onclick="location.href='http://localhost:3000/megrendeles.html';">
-    <input type="button" value="Eszközök szerkesztése" onclick="location.href='http://localhost:3000/login.html';">
 </div>
 <!-- end: content -->
 </body>
