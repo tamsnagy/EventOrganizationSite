@@ -15,53 +15,39 @@
     </h1>
 </div>
 <div class="content">
-    <input class="largeButton" type="button" value="Vissza a főoldalra" onclick="location.href='http://localhost:3000/index.html';">
+    <input class="largeButton" type="button" value="Vissza a főoldalra" onclick="location.href='http://localhost:3000/static/index.html';">
     <br/><br/><br/>
-    Eszköz szerkesztése
-    <select>
-        <option value="id1">Hangfal</option>
-        <option value="id2">Diszkogömb</option>
-    </select>
-    <input type="button" value="Mehet" onclick="$('#szerkeszt').show();"> <br/><br/>
-    <input type="button" value="Új eszköz" onclick="$('#szerkeszt').show();">
-    <div id="szerkeszt" style="overflow-x:auto;" hidden>
-        <table class="table" style="display: block">
+    <h2>Válassz eszközt a szerkesztéshez vagy hozz létre újat</h2>
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Név</th>
+                <th>Márka</th>
+                <th>Típus</th>
+                <th>Költség</th>
+                <th>Vásárlás</th>
+            </tr>
+            </thead>
             <tbody>
-            <tr>
-                <td>Név</td>
-                <td><input type="text"></td>
+            <tr onclick="location.href='http://localhost:3000/static/szerkesztes.html';">
+                <td>Hangfal</td>
+                <td>Sony</td>
+                <td>hang</td>
+                <td>15000</td>
+                <td>2012.03.18.</td>
             </tr>
-            <tr>
-                <td>Márka</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Típus</td>
-                <td>
-                    <select>
-                        <option value="id1">hang</option>
-                        <option value="id2">fény</option>
-                        <option value="id3">látvány</option>
-                        <option value="id4">dekoráció</option>
-                        <option value="id5">szórakoztató</option>
-                        <option value="id6">beléptető</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Költség</td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Dátum</td>
-                <td><input type="date"></td>
+            <tr onclick="location.href='http://localhost:3000/static/szerkesztes.html';">
+                <td>Diszkógömb</td>
+                <td>Party</td>
+                <td>fény</td>
+                <td>70000</td>
+                <td>2008.12.12.</td>
             </tr>
             </tbody>
         </table>
-        <input class="largeButton delete" type="button" value="Törlés" onclick="location.href='http://localhost:3000/index.html';">
-        <input class="largeButton save" type="button" value="Mentés" onclick="location.href='http://localhost:3000/index.html';">
-
     </div>
+    <input type="button" value="Új eszköz" onclick="location.href='http://localhost:3000/static/szerkesztes.html';">
 </div>
 <!-- end: content -->
 </body>
