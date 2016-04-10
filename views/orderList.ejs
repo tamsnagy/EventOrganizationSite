@@ -1,0 +1,36 @@
+<%- include('header') %>
+<!-- start: content -->
+
+<div class="content">
+    <h2>Megrendelések</h2>
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Eszköz</th>
+                <th>Márka</th>
+                <th>Megrendelő</th>
+                <th>Dátum</th>
+                <th>Megjegyzés</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <% orders.forEach(function(item){ %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.brand %></td>
+                    <td><%= item.costumer %></td>
+                    <td><%= item.date %></td>
+                    <td><%= item.comment %></td>
+                </tr>
+                <% }); %>
+
+            </tbody>
+        </table>
+    </div>
+    <input type="button" value="Eszköz foglalás" onclick="location.href='/';">
+</div>
+
+<!-- end: content -->
+<%- include('footer') %>

@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <title>Málna rendezvényszervezés</title>
-    <link rel="stylesheet" type="text/css" href="css/malna.css">
-</head>
-<body>
+<%- include('header') %>
 <!-- start: content -->
-<div class="header">
-    <h1>
-        <img style="width:75px;height:64px;vertical-align:middle" src="image/logo.jpg">
-        <span>Málna rendezvényszervezés</span>
-    </h1>
-</div>
-<div class="content">
+
+<div class="content" xmlns="http://www.w3.org/1999/html">
     <h2>Kiválasztott eszközök:</h2>
+    <form action="/order/finalize" method="post">
     <div style="overflow-x:auto;">
         <table class="table">
             <thead>
@@ -28,22 +17,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Hangfal</td>
-                <td>Sony</td>
-                <td>hang</td>
-                <td>15000</td>
-                <td>2012.03.18.</td>
-                <td><input type="checkbox" checked></td>
-            </tr>
-            <tr>
-                <td>Diszkógömb</td>
-                <td>Party</td>
-                <td>fény</td>
-                <td>70000</td>
-                <td>2008.12.12.</td>
-                <td><input type="checkbox" checked></td>
-            </tr>
+                <% devices.forEach(function(item){ %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.brand %></td>
+                    <td><%= item.type %></td>
+                    <td><%= item.cost %></td>
+                    <td><%= item.purchaseDate %></td>
+                    <td><input type="checkbox" name="selected" value="<%= item.id %>" checked/></td>
+                </tr>
+                <% }); %>
             </tbody>
         </table>
     </div>
@@ -79,9 +62,10 @@
                 </tbody>
             </table>
         </div>
-        <input class="largeButton" type="button" value="Véglegesít" onclick="location.href='http://localhost:3000/static/index.html';">
+        <input class="largeButton" type="submit" value="Véglegesít">
     </div>
+    </form>
 </div>
+
 <!-- end: content -->
-</body>
-</html>
+<%- include('footer') %>

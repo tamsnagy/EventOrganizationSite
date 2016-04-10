@@ -28,8 +28,7 @@ module.exports = function (app) {
      * Finalizes an order with costumer data.
      */
     app.post('/order/finalize',
-        finalizeOrderMW(objectRepository),
-        renderMW(objectRepository, 'main')
+        finalizeOrderMW(objectRepository)
     );
 
     /**

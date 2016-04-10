@@ -1,20 +1,30 @@
 var express = require('express');
 var app = express();
 
+var bodyParser = require('body-parser');
 
+app.set('view engine', 'ejs');
 
-//app.set('view engine', 'ejs');
-
-//app.use('/static', express.static('static'));
+app.use(express.static('public'));
 
 /**
  * Let's creat the .tpl and .error on the res object
  */
 app.use(function (req, res, next) {
-    res.error = [];
     res.tpl = {};
+    res.tpl.error = [];
     return next();
 });
+
+/**
+ + * Parse parameters in POST
+ + */
+// for parsing application/json
+app.use(bodyParser.json());
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 /**
  * Include all the routes

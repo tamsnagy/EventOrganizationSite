@@ -1,0 +1,38 @@
+<%- include('header') %>
+<!-- start: content -->
+
+<div class="content">
+    <input class="largeButton" type="button" value="Vissza a főoldalra" onclick="location.href='/';">
+    <br/><br/><br/>
+    <h2>Válassz eszközt a szerkesztéshez vagy hozz létre újat</h2>
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Név</th>
+                <th>Márka</th>
+                <th>Típus</th>
+                <th>Költség</th>
+                <th>Vásárlás</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <% devices.forEach(function(item){ %>
+                <tr onclick='location.href="/device/edit?id=<%= item.id %>";'>
+                    <td><%= item.name %></td>
+                    <td><%= item.brand %></td>
+                    <td><%= item.type %></td>
+                    <td><%= item.cost %></td>
+                    <td><%= item.purchaseDate %></td>
+                </tr>
+                <% }); %>
+
+            </tbody>
+        </table>
+    </div>
+    <input type="button" value="Új eszköz" onclick="location.href='/device/edit';">
+</div>
+
+<!-- end: content -->
+<%- include('footer') %>

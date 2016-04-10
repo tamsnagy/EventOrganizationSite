@@ -49,16 +49,14 @@ module.exports = function (app) {
      */
     app.post('/device/edit',
         checkAuthMW(objectRepository),
-        editMW(objectRepository),
-        renderMW(objectRepository, 'main')
+        editMW(objectRepository)
     );
 
     /**
      * Deletes a device.
      */
-    app.delete('/device/delete',
+    app.use('/device/delete',
         checkAuthMW(objectRepository),
-        deleteMW(objectRepository),
-        renderMW(objectRepository, 'main')
+        deleteMW(objectRepository)
     );
 };

@@ -6,15 +6,16 @@
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
+        console.log(req.body);
 
         //not enough parameter
-        if ((typeof req.body === 'undefined') || (typeof req.body.password === 'undefined')) {
+        if ((typeof req.body === 'undefined') || (typeof req.body.pass === 'undefined')) {
             return next();
         }
 
 
         //check password
-        if ('VerySecretP4ssw0rd' !== req.body.password) {
+        if ('VerySecretP4ssw0rd' !== req.body.pass) {
             res.tpl.error.push('Wrong password!');
             return next();
         }
