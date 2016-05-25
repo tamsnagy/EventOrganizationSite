@@ -11,11 +11,16 @@ module.exports = function (objectrepository) {
 
         deviceModel.findOne( {
             //TODO find by id req.query.id
+            id: req.query.id
         }, function (err, result) {
             if(err) {
                 return next(new Error('Error getting devices'));
             }
-            res.tpl.device = result;
+            if(! result) {
+                res.tpl.device = {};
+            } else {
+                res.tpl.device = result;
+            }
             return next();
         });
     };

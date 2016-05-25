@@ -6,24 +6,22 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectrepository) {
 
     var orderModel = requireOption(objectrepository, 'orderModel');
-    var costumerModer = requireOption(objectrepository, 'costumerModel');
+    var costumerModel = requireOption(objectrepository, 'costumerModel');
 
     return function (req, res, next) {
 
-        costumerModer.save( {
-
-        }, function (err, result) {
+        var costumer = new costumerModel();
+        costumer.save(function (err, result) {
             if(err) {
-                costumerModer.remove({}, function(err, result) {
+                costumerModel.remove({}, function(err, result) {
                     if(err) {
                         return next(new Error('Could not rollback'));
                     }
                 });
                 return next(new Error('Error saving costumer'));
             }
-            orderModel.save({
-
-            }, function(err, result) {
+            var order = new orderModel();
+            order.save(function(err, result) {
                 if(err) {
                     return next(new Error('Error saving order'));
                 }

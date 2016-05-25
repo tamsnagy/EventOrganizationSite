@@ -1,4 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todo');
+mongoose.connect('mongodb://localhost/i92ebp');
 
 module.exports = mongoose;

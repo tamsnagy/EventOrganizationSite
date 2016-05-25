@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        deviceModel.findAll( {
+        deviceModel.find( {
 
         }, function (err, results) {
             if(err) {

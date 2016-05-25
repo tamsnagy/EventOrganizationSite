@@ -10,7 +10,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         var atDate;
         if ((typeof req.query === 'undefined') || (typeof req.query.atDate === 'undefined')) {
-            atDate = new Date();
+            atDate = new Date().toISOString().split('T')[0];
         } else {
             atDate = req.query.atDate;
         }
@@ -21,7 +21,7 @@ module.exports = function (objectrepository) {
             if(err) {
                 return next(new Error('Error getting devices'));
             }
-            res.tpl.atDate = atDate.toISOString().split('T')[0];
+            res.tpl.atDate = atDate;
             res.tpl.devices = results;
             return next();
         });

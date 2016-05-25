@@ -9,9 +9,9 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        deviceModel.save( {
-            //TODO save
-        }, function (err, result) {
+        var device = new deviceModel();
+
+        device.save(function (err, result) {
             if(err) {
                 return next(new Error('Error deleting device'));
             }
