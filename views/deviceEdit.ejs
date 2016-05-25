@@ -10,16 +10,16 @@
             <tbody>
             <tr>
                 <td>Név</td>
-                <td><input type="text" value="<%= device.name %>"></td>
+                <td><input name="name" type="text" value="<%= device.name %>"></td>
             </tr>
             <tr>
                 <td>Márka</td>
-                <td><input type="text" value="<%= device.brand %>"></td>
+                <td><input name="brand" type="text" value="<%= device.brand %>"></td>
             </tr>
             <tr>
                 <td>Típus</td>
                 <td>
-                    <select>
+                    <select name="type">
                         <option value="hang" <%= device.type == 'hang' ? 'selected="selected"' : '' %>>hang</option>
                         <option value="fény" <%= device.type == 'fény' ? 'selected="selected"' : '' %>>fény</option>
                         <option value="látvány" <%= device.type == 'látvány' ? 'selected="selected"' : '' %>>látvány</option>
@@ -31,11 +31,11 @@
             </tr>
             <tr>
                 <td>Költség</td>
-                <td><input type="number" value="<%= device.cost %>"></td>
+                <td><input name="cost" type="number" value="<%= device.cost %>"></td>
             </tr>
             <tr>
                 <td>Dátum</td>
-                <td><input type="date" value="<%= device.purchaseDate %>"></td>
+                <td><input name="purchaseDate" type="date" value="<%= device.purchaseDate %>"></td>
             </tr>
             </tbody>
         </table>

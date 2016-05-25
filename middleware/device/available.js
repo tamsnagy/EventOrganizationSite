@@ -1,4 +1,6 @@
 var requireOption = require('../common').requireOption;
+var flatDatedDevice = require('../common').flatDatedDevice;
+
 
 /**
  * Queries available devices for specified date in request body, if no value is defined than for current day.
@@ -22,7 +24,7 @@ module.exports = function (objectrepository) {
                 return next(new Error('Error getting devices'));
             }
             res.tpl.atDate = atDate;
-            res.tpl.devices = results;
+            res.tpl.devices = results.map(flatDatedDevice);
             return next();
         });
     };

@@ -11,4 +11,17 @@ function requireOption(objectRepository, propertyName) {
     throw new TypeError(propertyName + ' required');
 }
 
+function flatDatedDevice(device) {
+    var flat = {};
+    flat.name = device.name;
+    flat.type = device.type;
+    flat.cost = device.cost;
+    flat.brand = device.brand;
+    if(typeof device.purchaseDate !== 'undefined') {
+        flat.purchaseDate = device.purchaseDate.toISOString().split('T')[0]
+    }
+    return flat;
+}
+
 module.exports.requireOption = requireOption;
+module.exports.flatDatedDevice = flatDatedDevice;

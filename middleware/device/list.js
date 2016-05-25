@@ -1,4 +1,5 @@
 var requireOption = require('../common').requireOption;
+var flatDatedDevice = require('../common').flatDatedDevice;
 
 /**
  * Returns all kind of devices from DB.
@@ -15,7 +16,7 @@ module.exports = function (objectrepository) {
             if(err) {
                 return next(new Error('Error getting devices'));
             }
-            res.tpl.devices = results;
+            res.tpl.devices = results.map(flatDatedDevice);
             return next();
         });
     };
