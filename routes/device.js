@@ -4,7 +4,6 @@ var listMW = require('../middleware/device/list');
 var editMW = require('../middleware/device/edit');
 var deleteMW = require('../middleware/device/delete');
 var getByIdMW = require('../middleware/device/getById');
-var checkAuthMW = require('../middleware/generic/checkAuth');
 
 var deviceModel = require('../models/device');
 var costumerModel = require('../models/costumer');
@@ -30,7 +29,6 @@ module.exports = function (app) {
      * Lists all devices.
      */
     app.get('/device/list',
-        checkAuthMW(objectRepository),
         listMW(objectRepository),
         renderMW(objectRepository, 'deviceList')
     );
@@ -39,7 +37,6 @@ module.exports = function (app) {
      * Returns all details to the selected device, rendered for editing.
      */
     app.get('/device/edit',
-        checkAuthMW(objectRepository),
         getByIdMW(objectRepository),
         renderMW(objectRepository, 'deviceEdit')
     );
@@ -48,7 +45,6 @@ module.exports = function (app) {
      * Saves the device even if it's newly created, without an id.
      */
     app.post('/device/save',
-        checkAuthMW(objectRepository),
         editMW(objectRepository)
     );
 
@@ -56,7 +52,6 @@ module.exports = function (app) {
      * Deletes a device.
      */
     app.use('/device/delete',
-        checkAuthMW(objectRepository),
         deleteMW(objectRepository)
     );
 };

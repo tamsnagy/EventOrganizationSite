@@ -1,6 +1,5 @@
 var renderMW = require('../middleware/generic/render');
 var authMW = require('../middleware/generic/auth');
-var checkAuthMW = require('../middleware/generic/checkAuth');
 
 var deviceModel = require('../models/device');
 
@@ -14,7 +13,6 @@ module.exports = function (app) {
      * Login page.
      */
     app.get('/login',
-        checkAuthMW(objectRepository),
         renderMW(objectRepository, 'login')
     );
 
