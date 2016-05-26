@@ -1,4 +1,5 @@
 var requireOption = require('../common').requireOption;
+var flatDatedDevice = require('../common').flatDatedDevice;
 
 /**
  * Returns device data based on id.
@@ -11,15 +12,15 @@ module.exports = function (objectrepository) {
 
         deviceModel.findOne( {
             //TODO find by id req.query.id
-            id: req.query.id
+            _id: req.query.id
         }, function (err, result) {
             if(err) {
                 return next(new Error('Error getting devices'));
             }
             if(! result) {
-                res.tpl.device = {};
+                res.tpl.device = new deviceModel();
             } else {
-                res.tpl.device = result;
+                res.tpl.device = flatDatedDevice(result);
             }
             return next();
         });

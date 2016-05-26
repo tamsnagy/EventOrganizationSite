@@ -47,7 +47,7 @@ module.exports = function (app) {
     /**
      * Saves the device even if it's newly created, without an id.
      */
-    app.post('/device/edit',
+    app.post('/device/save',
         checkAuthMW(objectRepository),
         editMW(objectRepository)
     );

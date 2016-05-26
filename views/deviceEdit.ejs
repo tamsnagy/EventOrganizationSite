@@ -40,7 +40,7 @@
             </tbody>
         </table>
         <input class="largeButton delete" type="submit" value="Törlés" formaction="/device/delete" formmethod="post">
-        <input class="largeButton save" type="submit" value="Mentés" formaction="/device/edit" formmethod="post">
+        <input class="largeButton save" type="submit" value="Mentés" formaction="/device/save?id=<%= device.id %>" formmethod="post">
         </form>
 
     </div>

@@ -13,6 +13,7 @@ function requireOption(objectRepository, propertyName) {
 
 function flatDatedDevice(device) {
     var flat = {};
+    flat.id = device._id;
     flat.name = device.name;
     flat.type = device.type;
     flat.cost = device.cost;
