@@ -24,12 +24,20 @@ module.exports = function (objectrepository) {
             });
         }
 
-        if ((typeof req.body.name === 'undefined') ||
-            (typeof req.body.brand === 'undefined') ||
-            (typeof req.body.cost === 'undefined') ||
-            (typeof req.body.type === 'undefined') ||
-            (typeof req.body.purchaseDate === 'undefined')) {
-            return next();
+        if (! req.body.name ||
+            ! req.body.brand ||
+            ! req.body.cost  ||
+            ! req.body.type  ||
+            ! req.body.purchaseDate) {
+            return next(Error('Missing expected value!'));
+        }
+
+        if(req.body.cost < 15000 || req.body.cost > 600000) {
+            return next(Error('Cost must be between 15000 and 600000'));
+        }
+
+        if(new Date(req.body.purchaseDate) < new Date('2008-01-01')){
+            return next(Error('Purchase date must happend after 2008-01-01'));
         }
 
         var device = undefined;

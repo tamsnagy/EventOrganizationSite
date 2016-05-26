@@ -11,6 +11,17 @@ module.exports = function (objectrepository) {
     var deviceModel = requireOption(objectrepository, 'deviceModel');
 
     return function (req, res, next) {
+        if(! req.body.name ||
+            ! req.body.date ||
+            ! req.body.place ||
+            ! req.body.money) {
+            return next( new Error('Missing expected value!'));
+        }
+
+        if(req.body.money < 60000) {
+            return next(new Error('Money should be at least 60000'));
+        }
+
         costumerModel.findOne({
             'name': req.body.name,
             'place': req.body.place,

@@ -38,7 +38,7 @@ require('./routes/order')(app);
  * Standard error handler
  */
 app.use(function (err, req, res, next) {
-    res.status(500).send('Houston, we have a problem!');
+    res.status(500).send(err.message);
 
     //Flush out the stack to the console
     console.error(err.stack);
