@@ -15,8 +15,14 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "chai": "^3.5.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.10"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.3"
   }
 }
