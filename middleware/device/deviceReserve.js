@@ -10,9 +10,14 @@ module.exports = function (objectrepository) {
     var deviceModel = requireOption(objectrepository, 'deviceModel');
 
     return function (req, res, next) {
-        var ids = req.body.selected.map(function(id) {
-           return mongoose.Types.ObjectId(id);
-        });
+        var ids = [];
+        if(typeof req.body.selected === 'string') {
+            ids = [mongoose.Types.ObjectId(req.body.selected)];
+        } else {
+            ids = req.body.selected.map(function(id) {
+                return mongoose.Types.ObjectId(id);
+            });
+        }
         deviceModel.find( {
             '_id' : {$in : ids}
         }, function (err, results) {

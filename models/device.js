@@ -1,4 +1,3 @@
-var Schema = require('mongoose').Schema;
 var db = require('../config/db');
 
 var Device = db.model('Device', {

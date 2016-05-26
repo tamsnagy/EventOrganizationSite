@@ -6,10 +6,12 @@ var Order = db.model('Order', {
         type: Schema.Types.ObjectId,
         ref: 'Device'
     },
-    _customer: {
+    _costumer: {
         type: Schema.Types.ObjectId,
         ref: 'Costumer'
     },
+    money: Number,
+    guestCount: Number,
     comment: String
 });
 
