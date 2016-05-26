@@ -4,6 +4,7 @@
     <form name="dateForm" action="/" method="get">
         <h2>Elérhető eszközök: <input name="atDate" type="date" value="<%= atDate %>" onchange="document.dateForm.submit();"></h2>
     </form>
+    <% if (devices.length > 0) { %>
     <form action="/order/reserve" method="post">
     <div style="overflow-x:auto;">
         <table class="table">
@@ -37,6 +38,9 @@
         <input class="largeButton" type="submit" value="Foglal">
     </div>
     </form>
+    <% } else { %>
+        <p>A kiválasztott napon minden eszközünk foglalt. Kérjük válasszon más napot.</p>
+    <% } %>
     <input type="button" value="Megrendelés lista" onclick="location.href='/order/list';">
     <input type="button" value="Eszközök szerkesztése" onclick="location.href='/login';">
 </div>

@@ -20,6 +20,9 @@ module.exports = function (objectrepository) {
             atDate = req.query.atDate;
         }
 
+        /**
+         * Query for costumers who have orders for the day atDate.
+         */
         costumerModel.find({
             'date' : {$gte: new Date(atDate), $lte: new Date(atDate)}
         }, function(err, costumers){
@@ -29,6 +32,10 @@ module.exports = function (objectrepository) {
             var costumerIds = costumers.map(function(costumer){
                 return costumer._id;
             });
+
+            /**
+             * Query for all orders of the costumers got before.
+             */
             orderModel.find({
                 '_costumer': {$in: costumerIds}
             }, function(err, orders){
@@ -38,6 +45,10 @@ module.exports = function (objectrepository) {
                 var deviceIds = orders.map(function(order){
                     return order._device;
                 });
+
+                /**
+                 * Query for all devices not in the list of orders for the day atDate.
+                 */
                 deviceModel.find({
                     '_id': {$nin: deviceIds}
                 }, function(err, devices){
@@ -50,19 +61,6 @@ module.exports = function (objectrepository) {
                 });
             });
         });
-
-
-
-        /*deviceModel.find( {
-            //TODO find based on atDate
-        }, function (err, results) {
-            if(err) {
-                return next(new Error('Error getting devices'));
-            }
-            res.tpl.atDate = atDate;
-            res.tpl.devices = results.map(flatDatedDevice);
-            return next();
-        });*/
     };
 
 };

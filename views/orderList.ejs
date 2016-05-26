@@ -3,6 +3,8 @@
 
 <div class="content">
     <h2>Megrendelések</h2>
+    <% if (orders.length > 0) { %>
+    <p> A mai naptól lefoglalt eszközök és megrendelőik</p>
     <div style="overflow-x:auto;">
         <table class="table">
             <thead>
@@ -29,6 +31,9 @@
             </tbody>
         </table>
     </div>
+    <% } else { %>
+        <p>Minden eszköz szabadon foglalható a mai naptól</p>
+    <% } %>
     <input type="button" value="Eszköz foglalás" onclick="location.href='/';">
 </div>
 

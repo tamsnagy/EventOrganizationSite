@@ -6,7 +6,6 @@
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
-        console.log(req.body);
 
         //not enough parameter
         if ((typeof req.body === 'undefined') || (typeof req.body.pass === 'undefined')) {

@@ -11,7 +11,6 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
 
         deviceModel.findOne( {
-            //TODO find by id req.query.id
             _id: req.query.id
         }, function (err, result) {
             if(err) {

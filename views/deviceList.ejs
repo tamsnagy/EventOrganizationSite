@@ -4,6 +4,7 @@
 <div class="content">
     <input class="largeButton" type="button" value="Vissza a főoldalra" onclick="location.href='/';">
     <br/><br/><br/>
+    <% if (devices.length > 0) { %>
     <h2>Válassz eszközt a szerkesztéshez vagy hozz létre újat</h2>
     <div style="overflow-x:auto;">
         <table class="table">
@@ -31,6 +32,9 @@
             </tbody>
         </table>
     </div>
+    <% } else { %>
+        <p>Még nincsenek eszközök az adatbázisban, vegyünk fel párat.</p>
+    <% } %>
     <input type="button" value="Új eszköz" onclick="location.href='/device/edit';">
 </div>
 
