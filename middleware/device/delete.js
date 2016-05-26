@@ -9,9 +9,7 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        deviceModel.remove( {
-            //TODO delete
-        }, function (err, result) {
+        deviceModel.findByIdAndRemove(req.query.id, function (err) {
             if(err) {
                 return next(new Error('Error getting devices'));
             }
