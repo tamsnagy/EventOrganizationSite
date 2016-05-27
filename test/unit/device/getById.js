@@ -5,22 +5,25 @@ describe('getById middleware', function() {
     it('should return default device w/o values since no id is passed', function(done){
         var req = {query:{}};
         var res = {tpl:{}};
-        var fakeDeviceModel = {findOne: function(some, cb) {
-           cb(undefined,
-               {
-                   '_id': undefined,
-                   'name': undefined,
-                   'brand': undefined,
-                   'type': undefined,
-                   'cost': 48000
-               })
-        }};
+        var fakeDeviceModel =  function deviceModel(){
+                return {
+                    'id': 'deviceId',
+                    'name': undefined,
+                    'brand': undefined,
+                    'type': undefined,
+                    'cost': 48000
+                }
+            };
+        fakeDeviceModel.findOne = function(some, cb) {
+            cb(undefined, null)
+        };
+
 
         getByIdMW({
             deviceModel: fakeDeviceModel
         })(req, res, function(err) {
             expect(res.tpl.device).to.eql({
-                'id': undefined,
+                'id': 'deviceId',
                 'name': undefined,
                 'brand': undefined,
                 'type': undefined,

@@ -18,6 +18,7 @@
     "chai": "^3.5.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "mocha": "^2.5.3",
     "mongoose": "^4.4.10"
   },
   "devDependencies": {
