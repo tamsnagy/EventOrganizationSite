@@ -7,7 +7,7 @@ describe('getById middleware', function() {
         var res = {tpl:{}};
         var fakeDeviceModel =  function deviceModel(){
                 return {
-                    'id': 'deviceId',
+                    '_id': 'deviceId',
                     'name': undefined,
                     'brand': undefined,
                     'type': undefined,
@@ -23,7 +23,7 @@ describe('getById middleware', function() {
             deviceModel: fakeDeviceModel
         })(req, res, function(err) {
             expect(res.tpl.device).to.eql({
-                'id': 'deviceId',
+                '_id': undefined,
                 'name': undefined,
                 'brand': undefined,
                 'type': undefined,
