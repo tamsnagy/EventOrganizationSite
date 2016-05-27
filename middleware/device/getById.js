@@ -18,6 +18,7 @@ module.exports = function (objectrepository) {
             }
             if(! result) {
                 res.tpl.device = new deviceModel();
+                res.tpl.device._id = undefined;
             } else {
                 res.tpl.device = flatDatedDevice(result);
             }

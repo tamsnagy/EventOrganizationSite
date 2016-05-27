@@ -41,10 +41,19 @@ module.exports = function (objectrepository) {
         }
 
         var device = undefined;
-        if(typeof res.tpl.device !== 'undefined') {
-            device = res.tpl.device;
-            deviceModel.findById(req.query.id, function(err, dev){
-                saveHandler(res, req, next, dev);
+        if(req.query.id !== '') {
+            device = {};
+            device.name = req.body.name;
+            device.brand = req.body.brand;
+            device.cost = req.body.cost;
+            device.type = req.body.type;
+            device.purchaseDate = req.body.purchaseDate;
+
+            deviceModel.findByIdAndUpdate(req.query.id, device, function(err, dev){
+                if (err) {
+                    return next(new Error('Error saving device'));
+                }
+                return res.redirect('/device/list');
             });
         } else {
             device = new deviceModel();
